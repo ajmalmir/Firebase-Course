@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1001084791359",
+    "project_id": "fir-course-kehnu",
+    "storage_bucket": "fir-course-kehnu.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1001084791359:android:505c6c8807e4f23d87668a",
+        "android_client_info": {
+          "package_name": "com.kehnu.firebase_course"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1001084791359-7c7a2bdh791gvvq02pr840tnh401ftlg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATwooS-znc422bOtP3GL5NOogHWHQwhHM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1001084791359-7c7a2bdh791gvvq02pr840tnh401ftlg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
