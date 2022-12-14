@@ -1,4 +1,6 @@
-import 'package:firebase_course/UI/Pages/LeaderBoard.dart';
+
+
+import 'package:firebase_course/UI/SplashScreen.dart';
 import 'package:firebase_course/firebase_options.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -26,7 +28,10 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.deepPurple,
       ),
       // !Home:--------------------------------------------------------------
-      home: LeaderBoard(),
-    );
+      home: SplashScreen(),
+
+     
+    );      
+
   }
 }

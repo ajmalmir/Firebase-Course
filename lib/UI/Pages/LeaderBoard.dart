@@ -18,6 +18,7 @@ class _LeaderBoardState extends State<LeaderBoard> {
           child: SingleChildScrollView(
         // physics: NeverScrollableScrollPhysics(),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             // ! Stack --------------------------------------------------{Started}
 
@@ -101,7 +102,7 @@ class _LeaderBoardState extends State<LeaderBoard> {
 
                             Container(
                               decoration: BoxDecoration(
-                                  border: Border.all(color: white, width: 2.0),
+                                  border: Border.all(color: yellow, width: 2.0),
                                   borderRadius: BorderRadius.only(
                                     topLeft: Radius.circular(100),
                                     topRight: Radius.circular(100),
@@ -192,7 +193,7 @@ class _LeaderBoardState extends State<LeaderBoard> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 5),
               child: Container(
-                height: MediaQuery.of(context).size.height,
+                height: 700,
                 child: StreamBuilder(
                   stream: FirebaseFirestore.instance
                       .collection('appsdata')
@@ -208,6 +209,8 @@ class _LeaderBoardState extends State<LeaderBoard> {
                       }
                     }
                     return Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Expanded(
                           flex: 1,

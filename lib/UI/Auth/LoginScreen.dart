@@ -1,5 +1,7 @@
-import 'package:firebase_course/Firebase%20Services/Database.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_course/UI/Auth/SignUpScreen.dart';
+import 'package:firebase_course/UI/post/Post.dart';
+import 'package:firebase_course/Utils/Utils.dart';
 import 'package:firebase_course/Widgets/SizeBox.dart';
 import 'package:firebase_course/Widgets/round_Button.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +15,8 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  late bool loading = false;
+  final _auth = FirebaseAuth.instance;
   // ! Adding Velidator---------------------------
   final _formkey = GlobalKey<FormState>();
   //! Controllers-------------------------------------
@@ -25,6 +29,32 @@ class _LoginScreenState extends State<LoginScreen> {
     super.dispose();
     emailcontroller.dispose();
     passwordcontroller.dispose();
+  }
+
+  void login() {
+    setState(() {
+      loading = true;
+    });
+    _auth
+        .signInWithEmailAndPassword(
+            email: emailcontroller.text.toString().trim(),
+            password: passwordcontroller.text.toString().trim())
+        .then((value) {
+      setState(() {
+        loading = false;
+      });
+      Utils().toastMessage(value.user!.email.toString());
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => PostScreen(),
+          ));
+    }).onError((error, stackTrace) {
+      setState(() {
+        loading = false;
+      });
+      Utils().toastMessage(error.toString());
+    });
   }
 
   @override
@@ -109,8 +139,11 @@ class _LoginScreenState extends State<LoginScreen> {
               // ! Button--------------------------------
               RoundButton(
                 title: 'Login',
+                loading: loading,
                 onTap: () {
-                  if (_formkey.currentState!.validate()) {}
+                  if (_formkey.currentState!.validate()) {
+                    login();
+                  }
                 },
               ),
               adh(20),
@@ -123,7 +156,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => DataBasePage(),
+                            builder: (context) => SignUpScreen(),
                           ));
                     },
                     child: Text(

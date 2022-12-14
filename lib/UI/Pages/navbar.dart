@@ -1,7 +1,7 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:firebase_course/UI/Auth/LoginScreen.dart';
 import 'package:firebase_course/UI/Auth/SignUpScreen.dart';
 import 'package:firebase_course/UI/Pages/LeaderBoard.dart';
+import 'package:firebase_course/UI/post/Post.dart';
 import 'package:flutter/material.dart';
 
 class NavigationBarPage extends StatefulWidget {
@@ -18,7 +18,7 @@ class _NavigationBarPageState extends State<NavigationBarPage> {
 
   final pages = [
     LeaderBoard(),
-    LoginScreen(),
+    PostScreen(),
     SignUpScreen(),
   ];
 
