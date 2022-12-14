@@ -1,7 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_course/UI/Auth/Phone_Auth.dart';
 import 'package:firebase_course/UI/Auth/SignUpScreen.dart';
 import 'package:firebase_course/UI/post/Post.dart';
 import 'package:firebase_course/Utils/Utils.dart';
+import 'package:firebase_course/Widgets/Colors_Ui.dart';
 import 'package:firebase_course/Widgets/SizeBox.dart';
 import 'package:firebase_course/Widgets/round_Button.dart';
 import 'package:flutter/material.dart';
@@ -165,7 +167,24 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   )
                 ],
-              )
+              ),
+              // !Login with Mobile Phone
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => PhoneAuth(),
+                      ));
+                },
+                child: Container(
+                  height: 50,
+                  decoration: BoxDecoration(
+                      border: Border.all(color: grey),
+                      borderRadius: BorderRadius.circular(15)),
+                  child: Center(child: Text('Login with Phone ')),
+                ),
+              ),
             ],
           ),
         )),
