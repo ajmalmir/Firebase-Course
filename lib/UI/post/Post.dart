@@ -59,6 +59,22 @@ class _PostStreenState extends State<PostScreen> {
       body: Center(
         child: Column(
           children: [
+            // ! Streambuilder
+            Expanded(
+              child: StreamBuilder(
+                stream: ref.onValue,
+                builder: (context, AsyncSnapshot<DatabaseEvent> snapshot) {
+                  return ListView.builder(
+                    itemCount: snapshot.data?.snapshot.children.length,
+                    itemBuilder: (context, index) {
+                      return ListTile(
+                        title: Text('Hellow'),
+                      );
+                    },
+                  );
+                },
+              ),
+            ),
             Expanded(
               child: FirebaseAnimatedList(
                 defaultChild: Text('Loading.....'),
